@@ -6,21 +6,21 @@ t0 = 0 ;
 tf = 20 ; 
 td = 0.05; 
 t = t0:td:tf;
-a = 0.2;
+a = 1;
 y = sin(a*(t-3));
 yd = diff(y)/td;
 ydd = diff(yd)/td;
 subplot(2,2,1)
 plot(t,y,t(2:length(t)),yd,t(3:length(t)),ydd);
 hold on;
-plot(t,zeros(length(t)),'--b',t,ones(length(t)),'--g');
+plot(t,zeros(size(t)),'--b',t,ones(size(t)),'--g');
 
-[f_new,K,D,g,x0,tau] = dmp(y,t0,tf,td,t);
+[f_new,K,D,g,x0,tau,s] = dmp(y,t0,tf,td,t);
 
 
 %% functions
 
-function [f_new,K,D,g,x0,tau] = dmp(x,t0,tf,td,t)
+function [f_new,K,D,g,x0,tau,s] = dmp(x,t0,tf,td,t)
     tau = 1;
     xd = diff(x)/td;
     xdd = diff(xd)/td;
@@ -29,15 +29,19 @@ function [f_new,K,D,g,x0,tau] = dmp(x,t0,tf,td,t)
     K = 1; D = sqrt(4*K);
     g = x(length(x));
     x0 = x(1);
-    f_s = (-K*(g-x) + D*v + tau*vd)/(g-x0);
-    alp_s = 0.3;
+%     f_s = (-K*(g-x) + D*v + tau*vd)/(g-x0);
+    
+
+    alp_s = 0.2;
     s = exp(-alp_s*t/tau);
+    
+    f_s = (tau*vd + D*v)/K - (g-x) + (g-x0)*s;
     
     plot(t,s);
     legend('y','yd','ydd','','','s(t)');
     subplot(2,2,3);
     
-    f_new = gaussian_basis(s,1,500,20,f_s);
+    f_new = gaussian_basis(s,1,500,50,f_s);
     
 end
 
