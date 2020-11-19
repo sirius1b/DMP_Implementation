@@ -2,7 +2,7 @@ clf;
 clc;
 %% parameters
 t0 = 0 ; 
-tf = 10 ; 
+tf = 20 ; 
 td = 0.05; 
 t = t0:td:tf;
 a = 0.2;
@@ -31,16 +31,13 @@ function f_new = dmp(x,t0,tf,td,t)
     f_s = (-K*(g-x) + D*v + tau*vd)/(g-x0);
     alp_s = 0.3;
     s = exp(-alp_s*t/tau);
-    
-    
-    
-    
+     
     
     plot(t,s);
     legend('y','yd','ydd','','','s(t)');
     subplot(2,2,3);
     
-    f_new = gaussian_basis(s,1.2,100,20,f_s);
+    f_new = gaussian_basis(s,1,100,29,f_s);
     
 end
 
@@ -61,9 +58,8 @@ function f_new = gaussian_basis(s,c,h,n,f_s)
     end
     
     for i = 1:length(s)
-        K(i,:) = K(i,:)/sum(K(i,:));
+        K(i,:) = K(i,:)*s(i)/sum(K(i,:));
     end
-    
     
     f_new = K*wi_lw;
     

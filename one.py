@@ -56,7 +56,7 @@ def dmp(x,xd,xdd,t0,tf,td,t):
 	alp = 1
 	s = np.exp(-alp*t/tau)
 
-	ft = get_gaussians(s,1,500,50,f_s)
+	ft = get_gaussians(s,1,50,10,f_s)
 
 	#---------------------
 
