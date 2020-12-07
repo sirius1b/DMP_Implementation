@@ -29,6 +29,7 @@ function [f_new,K,D,g,x0,tau,s] = dmp(x,t0,tf,td,t)
     K = 1; D = sqrt(4*K);
     g = x(length(x));
     x0 = x(1);
+    
 %     f_s = (-K*(g-x) + D*v + tau*vd)/(g-x0);
     
 
@@ -38,21 +39,18 @@ function [f_new,K,D,g,x0,tau,s] = dmp(x,t0,tf,td,t)
     f_s = (tau*vd + D*v)/K - (g-x) + (g-x0)*s;
     
     plot(t,s);
-    legend('y','yd','ydd','','','s(t)');
+    legend('y','yd','ydd','0','1','s(t)');
     subplot(2,2,3);
     
     f_new = gaussian_basis(s,1,500,50,f_s);
     
 end
 
-
-
 function f_new2 = gaussian_basis(s,c,h,n,f_s)
     Cs = (1:n)*(c/n);
     Cs = ones(length(s),1)*Cs;
     sn = s'*ones(1,n);
     K = exp(-h.*(sn-Cs).^2);
-    
     K1 = K;
     wi_lw = zeros(n,1);
     for i = 1:n
@@ -60,11 +58,9 @@ function f_new2 = gaussian_basis(s,c,h,n,f_s)
         
         wi_lw(i,1) = (s*qsi*f_s')/(s*qsi*s');
     end
-    
     for i = 1:length(s)
         K(i,:) = K(i,:)*s(i)/sum(K(i,:));
     end
-    
     f_new1 = K*wi_lw;
     
     wi = K'*K\K'*f_s';
