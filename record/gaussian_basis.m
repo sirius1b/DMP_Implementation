@@ -1,4 +1,4 @@
-function [Wg,means,widths,n] = gaussian_basis(s,c,h,n,f_s)
+function [Wg,means,widths,n] = gaussian_basis(s,c,h,n,f_s,t)
     Cs = (1:n)*(c/n);
     means = Cs;
     widths = h*ones(size(means));
@@ -7,7 +7,6 @@ function [Wg,means,widths,n] = gaussian_basis(s,c,h,n,f_s)
     K = exp(-h.*(sn-Cs).^2);
     K1 = K;
     wi_lw = zeros(n,1);
-    
     % --------------------
     for i = 1:n
         qsi = diag(K1(:,i));    
@@ -19,14 +18,13 @@ function [Wg,means,widths,n] = gaussian_basis(s,c,h,n,f_s)
     for i = 1:length(s)
         K(i,:) = K(i,:)*s(i)/sum(K(i,:));
     end    
-    wi = K'*K\K'*f_s';
-    f_new2 = K*wi;
-    Wg = wi;
+    wi = pinv(K)*f_s';
+%     f_new2 = K*wi;
+     Wg = wi;
 
-
-    subplot(2,1,1);
-    f_new1 = K*wi_lw;
-    plot(s,f_new1);
+%     f_new1 = K*wi_lw;
+    f_new1 = K*Wg;
+    plot(t,f_new1);
     hold on;
 
 end

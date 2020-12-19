@@ -8,7 +8,8 @@ td = 0.001;
 % t = t0:td:tf;
 a = 1;
 % y = sin(a*(t-3));
-[xn,yn,tn] = genTraj("Lavanya.xlsx",td,1);
+% [xn,yn,tn] = genTraj("Lavanya.xlsx",td,1);
+[xn,yn,tn] = genTraj("One.xlsx",td,1,1,1);
 y = xn;
 t = tn;
 t0 = tn(1); tf = tn(end);
@@ -70,7 +71,7 @@ function f_new2 = gaussian_basis(s,c,h,n,f_s)
     end
     f_new1 = K*wi_lw;
     
-    wi = K'*K\K'*f_s';
+    wi = pinv(K)*f_s';
     f_new2 = K*wi;
     
     hold on;
