@@ -3,7 +3,7 @@ td = 0.001;
 
 % DMP_Parameters
 
- fName = input("Recorded Trajectory File:");
+fName = input("Recorded Trajectory File:");
 % fName = "Six.xlsx";
 % [q,tn] = Link_Model_2(fName,td);
 
