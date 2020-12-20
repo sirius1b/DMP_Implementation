@@ -3,12 +3,12 @@ td = 0.001;
 
 % DMP_Parameters
 
-%  fName = input("Recorded Trajectory File:");
-fName = "Six.xlsx";
+ fName = input("Recorded Trajectory File:");
+% fName = "Six.xlsx";
 % [q,tn] = Link_Model_2(fName,td);
 
 %---------------------------------------
-timeScale = 10;
+timeScale = 5;
 axisScale = 1;
 [xn,yn,tn] = genTraj(fName,td,1,timeScale,axisScale);
 q = [xn',yn'];
