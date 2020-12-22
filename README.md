@@ -1,9 +1,9 @@
-# DMP_Implementation 
+## DMP_Implementation 
 Course project of ECE670. 
 
 <!-- >> run: Record_Motion    -->
-		run: Record_Motion
-		(r : to generate waypoits, s: to save  them)
+	run: Record_Motion
+	(r : to generate waypoits, s: to save  them)
 	Record the trajectory and save them
 
 <img src="Images/1.png">
@@ -35,8 +35,11 @@ Main_DMP generated weigts and extracted weigts into a new file "name_weigts.xlsx
 		
 
 	Then we output refrence state i.e. joinstate variables; and design controller and system(repesetig dyamics)
-		
 
 	Use the visualizer(Manipulator.m) file to see the visulation
 
 <img src="Images/11.png">
+
+## References:
+- Literature Review(DOCS/Literature_Review.pdf)
+- Project Report(DOCS/Project_Report.pdf)
