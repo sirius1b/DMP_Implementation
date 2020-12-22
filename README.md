@@ -41,5 +41,5 @@ Main_DMP generated weigts and extracted weigts into a new file "name_weigts.xlsx
 <img src="Images/11.png">
 
 ## Documents:
-- [Literature Review](../DOCS/Literature_Review.pdf)
-- [Project Report](../DOCS/Project_Report.pdf)
+- [Literature Review](../main/DOCS/Literature_Review.pdf)
+- [Project Report](../main/DOCS/Project_Report.pdf)
