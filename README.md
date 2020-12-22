@@ -40,6 +40,6 @@ Main_DMP generated weigts and extracted weigts into a new file "name_weigts.xlsx
 
 <img src="Images/11.png">
 
-## References:
-- Literature Review(DOCS/Literature_Review.pdf)
-- Project Report(DOCS/Project_Report.pdf)
+## Documents:
+- [Literature Review](../DOCS/Literature_Review.pdf)
+- [Project Report](../DOCS/Project_Report.pdf)
