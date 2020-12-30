@@ -1,5 +1,5 @@
 ## DMP_Implementation 
-Course project of ECE670. 
+This is the course project of ECE670, Monsoon 2020 conducted at IIITD. Aim of the project was to use demonstration learning technique specifically Dynamic Movement Primitives(DMP) in Activities of Daily Livings(ADLs). Project demonstrates the same architecture applied on 2DOF manipulator to retrace End-User's personal handwritting style. Steps below presents the entire execution cycle of the program, from Record of trajectory to Animating the movements of manipulator.
 
 <!-- >> run: Record_Motion    -->
 	run: Record_Motion
