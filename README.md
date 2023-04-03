@@ -1,5 +1,14 @@
 ## DMP_Implementation 
-This is the course project of ECE670, Monsoon 2020 conducted at IIITD. Aim of the project was to use demonstration learning technique specifically Dynamic Movement Primitives(DMP) in Activities of Daily Livings(ADLs). Project demonstrates the same architecture applied on 2DOF manipulator to retrace End-User's personal handwritting style. Steps below presents the entire execution cycle of the program, from Record of trajectory to Animating the movements of manipulator.
+This project is about [demonstration learning](http://www.scholarpedia.org/article/Robot_learning_by_demonstration) technique, [DMP(Dynamic Movement Primitives)](https://homes.cs.washington.edu/~todorov/courses/amath579/reading/DynamicPrimitives.pdf) applied on 2DOF manipulators to generate to waypoints for manipulator's controller. DMP is a strategy to generate trajectory for controller to execute, generated trajectory would be based on data-points records recorded via kinestatic means or sensor deployed in immersive teleoperation scenario(s). 
+Improvement of DMP over standard interpolation methods are the following:
+- Ability to adjust for temporal scaling
+- Ability to adjust for spatial scaling in accordance to the external point in tha Task-Space
+- Asymptotic convergence of trajectory to the external point
+
+It a provide a means to genearate extensive set of movements for robots without explicity code for the movement. It is based on the work of [Schaal et. al](https://homes.cs.washington.edu/~todorov/courses/amath579/reading/DynamicPrimitives.pdf) with foundation in neurobiology.
+
+<hr>
+This is an implementation of DMP over a scenario to recreate a user's hand writing on 2DOF manipulator using record way-points in task-space. Hand writing is recorded in task space represented in (XY) coordinate and it is decomposed in the weights for gaussian kernels(basis functions). In simulink, these weights are loaded to generate the trajectory for 2DOF manipulator. Animation generated using peter coorke's toolbox.
 
 <!-- >> run: Record_Motion    -->
 	run: Record_Motion
