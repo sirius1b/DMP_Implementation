@@ -5,7 +5,7 @@ Improvement of DMP over standard interpolation methods are the following:
 - Ability to adjust for spatial scaling in accordance to the external point in tha Task-Space
 - Asymptotic convergence of trajectory to the external point
 
-It a provide a means to genearate extensive set of movements for robots without explicity code for the movement. It is based on the work of [Schaal et. al](https://homes.cs.washington.edu/~todorov/courses/amath579/reading/DynamicPrimitives.pdf) with foundation in neurobiology.
+It provide a means to genearate extensive set of movements for robots without explicity code for the movement. It is based on the work of [Schaal et. al](https://homes.cs.washington.edu/~todorov/courses/amath579/reading/DynamicPrimitives.pdf) with foundation in neurobiology.
 
 <hr>
 This is an implementation of DMP over a scenario to recreate a user's hand writing on 2DOF manipulator using record way-points in task-space. Hand writing is recorded in task space represented in (XY) coordinate and it is decomposed in the weights for gaussian kernels(basis functions). In simulink, these weights are loaded to generate the trajectory for 2DOF manipulator. Animation generated using peter coorke's toolbox.
